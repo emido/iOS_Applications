@@ -3,4 +3,54 @@
    uuid = "31EFF846-5778-4661-B954-786A0AA20A3B"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3E3E0B9D-31ED-45FF-B7EB-6D637E25786F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "News/Utilities/Managers/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "getTopArticles()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3E3E0B9D-31ED-45FF-B7EB-6D637E25786F - d78f71e2ed0c1714"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for News.NetworkManager.getTopArticles() async throws -&gt; Swift.Array&lt;News.TopNews&gt;"
+                  moduleName = "News"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Maryam_Secondary/Github/iOS_Applications/News/News/Utilities/Managers/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "498">
+               </Location>
+               <Location
+                  uuid = "3E3E0B9D-31ED-45FF-B7EB-6D637E25786F - d78f71e2ed0c1714"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for News.NetworkManager.getTopArticles() async throws -&gt; Swift.Array&lt;News.TopNews&gt;"
+                  moduleName = "News"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/Maryam_Secondary/Github/iOS_Applications/News/News/Utilities/Managers/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "50"
+                  endingLineNumber = "50"
+                  offsetFromSymbolStart = "510">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

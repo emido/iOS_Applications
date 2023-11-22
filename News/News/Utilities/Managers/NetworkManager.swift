@@ -32,7 +32,7 @@ final class NetworkManager {
         for parameter in parameters {
             queryItems.append(URLQueryItem(name: parameter.0, value: parameter.1))
         }
-        var urlComponents = URLComponents(string: topURL)!
+        var urlComponents = URLComponents(string: urlLink)!
         urlComponents.queryItems = queryItems
         let queryURL = urlComponents.url
         return queryURL
