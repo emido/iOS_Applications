@@ -22,10 +22,15 @@ struct NewsCategoriesGridView: View {
                 }
                 
             }
-            .navigationTitle("News Categories")
+            .background(LinearGradient(gradient:
+                                        Gradient(colors: [.white,.mint,.accentColor]),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing))
             .navigationDestination(for: NewsCategory.self) { category in
                 NewsSourcesListView(viewModel: NewsSourceListViewModel(category: category))
+                    .navigationTitle("\(category.title.capitalized)")
             }
+            .navigationTitle("News Categories")
         }
     }
 }

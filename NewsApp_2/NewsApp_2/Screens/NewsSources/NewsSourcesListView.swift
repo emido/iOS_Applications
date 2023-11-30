@@ -9,26 +9,38 @@ import SwiftUI
 
 struct NewsSourcesListView: View {
     
-    @ObservedObject var viewModel : NewsSourceListViewModel
+    @StateObject var viewModel : NewsSourceListViewModel
+    @State private var searchText = ""
     
     var body: some View {
-        VStack {
-            Text("\(viewModel.category.title) Sources")
-                .font(.title)
-                .fontWeight(.heavy)
-                .frame(maxWidth: .infinity, alignment: .center)
-                
-            List(viewModel.sources) { source in
-                NewsSourcesCellView(source: source)
+        ZStack {
+            List(viewModel.nSources) { source in
+                NavigationLink(value: source) {
+                    NewsSourcesCellView(source: source)
+                }
            }
-            
-
+            .navigationDestination(for: NewsSource.self) { source in
+                NewsArticleListView(viewModel: NewsArticlesListViewModel(source: source))
+                    .navigationTitle("\(source.name.capitalized)")
+            }
+            .searchable(text: $searchText, prompt: "Look for a news source...")
+            .onChange(of: searchText) { newSearch in
+                viewModel.search(with: newSearch)
+            }
+            .task {
+                viewModel.getNewsSources(by: viewModel.category.title)
+            }
+            .alert(isPresented: $viewModel.didError) {
+                Alert(title: viewModel.alertItem.title,
+                      message: viewModel.alertItem.message,
+                      dismissButton: viewModel.alertItem.dismissButton)
+            }
+            if(viewModel.isLoading) {
+                LoadingView()
+            }
         }
-        .task {
-            viewModel.getNewsSources(by: viewModel.category.title)
-        }
-        
     }
+        
     
 }
 

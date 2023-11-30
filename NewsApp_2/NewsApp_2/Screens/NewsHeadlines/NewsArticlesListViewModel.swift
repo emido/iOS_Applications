@@ -1,41 +1,35 @@
 //
-//  NewsSourceListViewModel.swift
+//  NewsHeadlinesListViewModel.swift
 //  NewsApp_2
 //
-//  Created by Maryam on 2023-11-21.
+//  Created by Maryam on 2023-11-25.
 //
 
 import SwiftUI
 
 
-@MainActor final class NewsSourceListViewModel : ObservableObject {
-    
-    @Published var nSources : [NewsSource] = []
-    @Published var isLoading =  false
+@MainActor final class NewsArticlesListViewModel : ObservableObject {
+   
+    @Published var articles : [Article] = []
+    var source: NewsSource
+
+    @Published var isLoading = false
     @Published var didError = false
-    var category : NewsCategory
+    var alertItem : AlertItem = AlertContext.genericError
 
     
-    var alertItem : AlertItem = AlertContext.genericError
-    
-    
-    
-    init(category: NewsCategory) {
-        self.category = category
+    init(source: NewsSource) {
+        self.source = source
     }
     
-    
-    
-    func getNewsSources(by category: String) {
-        isLoading = true
-        // lowercase the category title
-        let category = category.lowercased()
+    func LoadArticles(by source: String) {
+        isLoading  = true
         Task {
             do {
-                nSources = try await NetworkManager.shared.getSources(by: category)
+                articles = try await NetworkManager.shared.getTopArticles(from: source)
                 isLoading = false
             } catch {
-                didError = true
+                didError  = true
                 if let nsError = error as? NSError {
                     switch nsError {
                     case .invalidURL:
@@ -53,13 +47,8 @@ import SwiftUI
                 }
                 isLoading = false
             }
-        } 
+        }
+        
     }
     
-    
-    func search(with query: String) {
-        nSources = query.isEmpty ?  nSources : nSources.filter{ $0.name.contains(query) }
-    }
 }
-
-

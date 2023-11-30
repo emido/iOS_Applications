@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AppetizerListView: View {
     
-    // when passing viewmodel from one to another view we are using the @StateObject
+    // when passing viewModel from one to another view we are using the @StateObject
     @StateObject var viewModel = AppetizerListViewModel()
     
     var body: some View {
@@ -19,10 +19,10 @@ struct AppetizerListView: View {
                     AppetizerListCell(appetizer: appetizer)
 //                        .listRowSeparator(.hidden)
 //                        .listRowSeparatorTint(.brandPrimary)
-                        .onTapGesture {
-                            viewModel.selectedAppetizer = appetizer
-                            viewModel.isShowingDetail = true
-                        }
+                    .onTapGesture {
+                        viewModel.selectedAppetizer = appetizer
+                        viewModel.isShowingDetail = true
+                    }
                 }
                 .navigationTitle("🍔 Appetizers")
                 .listStyle(.plain)

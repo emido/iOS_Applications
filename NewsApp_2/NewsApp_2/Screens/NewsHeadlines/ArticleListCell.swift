@@ -7,11 +7,13 @@
 
 import SwiftUI
 
-struct ArticleCell: View {
+struct ArticleListCell: View {
     var article  : Article
+    let imageURLPlaceholderString = "https://png.pngtree.com/png-vector/20210604/ourmid/pngtree-gray-network-placeholder-png-image_3416659.jpg"
+    
     var body: some View {
         HStack {
-            AsyncImage(url: URL(string: article.url)) { image in
+            AsyncImage(url: URL(string: article.urlToImage ?? imageURLPlaceholderString)) { image in
                 image
                     .listImageModifier()
             } placeholder: {
@@ -19,17 +21,17 @@ struct ArticleCell: View {
                     .listImageModifier()
             }
 
-            Text(article.title)
+            Text(article.title ?? "No Title Available")
                 .font(.headline)
                 .fontWeight(.medium)
                 .padding(.leading)
         }
-        .padding()
+        
     }
 }
 
 struct ArticleCell_Previews: PreviewProvider {
     static var previews: some View {
-        ArticleCell(article: MockArticleData.sampleArticle1)
+        ArticleListCell(article: MockArticleData.sampleArticle1)
     }
 }
