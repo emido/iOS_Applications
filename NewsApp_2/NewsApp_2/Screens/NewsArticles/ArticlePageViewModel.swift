@@ -17,6 +17,7 @@ final class ArticlePageViewModel: ObservableObject {
     
     
     func formattedDateString(from dateString: String) -> String {
+        print(dateString)
         let date = article.publishedAt.toDate
         return date.articleDateString
     }

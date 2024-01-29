@@ -17,6 +17,7 @@ final class NetworkManager {
     static let topHeadlinesURL = baseURL + "/top-headlines"
     static let sourcesURL = baseURL + "/top-headlines/sources"
     static let apiKey = "546901209aa14cf2819c9dc2e71f86a7"
+    static let everythingURL = baseURL + "/everything"
     
     
     private init() {}
@@ -67,6 +68,13 @@ final class NetworkManager {
         } catch {
             throw NSError.invalidData
         }
+    }
+    
+    
+    func getAllArticles(from domain:String) async throws -> [Article] {
+        let parameterURL = createQuery(with: [("domains", domain)], using: NetworkManager.everythingURL)
+        print(parameterURL)
+        return MockArticleData.articleLists
     }
     
     

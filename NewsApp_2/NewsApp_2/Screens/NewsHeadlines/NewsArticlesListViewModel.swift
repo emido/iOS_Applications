@@ -26,7 +26,7 @@ import SwiftUI
         isLoading  = true
         Task {
             do {
-                articles = try await NetworkManager.shared.getTopArticles(from: source)
+                articles = try await NetworkManager.shared.getAllArticles(from: source)     //getTopArticles(from: source)
                 isLoading = false
             } catch {
                 didError  = true

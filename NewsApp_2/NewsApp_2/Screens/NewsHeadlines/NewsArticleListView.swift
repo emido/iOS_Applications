@@ -21,7 +21,7 @@ struct NewsArticleListView: View {
                 ArticlePageView(viewModel: ArticlePageViewModel(article: article))
             }
             .task {
-                viewModel.LoadArticles(by: viewModel.source.name)
+                viewModel.LoadArticles(by: viewModel.source.url.absoluteString)  //.name
             }
             .alert(isPresented: $viewModel.didError) {
                 Alert(title: viewModel.alertItem.title,

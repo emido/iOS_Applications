@@ -7,17 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0704EB11-42B3-4610-B55C-7ABC40F7FDFE"
-            shouldBeEnabled = "No"
+            uuid = "85481E68-8B42-4F21-8A6C-A1E53C17EFE5"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "NewsApp_2/Utilities/Extentions/String+Ext.swift"
+            filePath = "NewsApp_2/Utilities/Managers/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
-            landmarkName = "toDate"
-            landmarkType = "24">
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "getAllArticles(from:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
